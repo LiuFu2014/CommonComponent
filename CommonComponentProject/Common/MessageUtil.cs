@@ -42,7 +42,7 @@ namespace Common
         }
         //Testtest
         //from remoting TestBanch
-        //jdlfjalksdjf zaici ceshi 的
+        //jdlfjalksdjf zaici ceshi
     }
 }
 
