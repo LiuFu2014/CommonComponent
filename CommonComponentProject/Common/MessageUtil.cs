@@ -40,6 +40,8 @@ namespace Common
         {
             return MessageBox.Show(message, "提示信息", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
         }
+
+        //Master
     }
 }
 
