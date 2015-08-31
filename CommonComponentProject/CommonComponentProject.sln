@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBClass", "DBClass\DBClass.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI", "NPOI\NPOI.csproj", "{6734D548-4449-46E7-B34A-E5C78E4A377A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{8D014DF5-DFAA-4680-8A81-D4F94967FE44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6734D548-4449-46E7-B34A-E5C78E4A377A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6734D548-4449-46E7-B34A-E5C78E4A377A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6734D548-4449-46E7-B34A-E5C78E4A377A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
