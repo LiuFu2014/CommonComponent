@@ -8,6 +8,12 @@ using System.Drawing;
 
 namespace Common
 {
+    /// <summary>
+    /// 使用说明：
+    /// 1.传入一个dgv作为参数，但不必给他赋值
+    /// 2.使用自带函数刷新数据
+    /// 3.使用DgvDisplayUtil配置你需要显示的列
+    /// </summary>
     public class DgvDisplayUtil
     {
         const string dgv_chk_tag = "F6FC5CEF7E5B48bbB04834B22DC248C3";
