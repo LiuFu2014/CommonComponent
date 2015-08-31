@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DGV\DgvDisplayUtil.cs" />
     <Compile Include="DGV\dgvFilterColHeadCell.cs" />
+    <Compile Include="LogExecute.cs" />
     <Compile Include="MessageUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DGV\UCCheckSelect.cs">
