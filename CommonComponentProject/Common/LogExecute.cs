@@ -11,6 +11,7 @@ namespace Common
     /// </summary>
     public class LogExecute
     {
+        //Function
 
         static string LogPath = "";
 
