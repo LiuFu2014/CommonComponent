@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI", "NPOI\NPOI.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{8D014DF5-DFAA-4680-8A81-D4F94967FE44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastReportHelper", "FastReportHelper\FastReportHelper.csproj", "{FD90E208-80E9-448C-9E14-D69F7178C42B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D014DF5-DFAA-4680-8A81-D4F94967FE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD90E208-80E9-448C-9E14-D69F7178C42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD90E208-80E9-448C-9E14-D69F7178C42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD90E208-80E9-448C-9E14-D69F7178C42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD90E208-80E9-448C-9E14-D69F7178C42B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
