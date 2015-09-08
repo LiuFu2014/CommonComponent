@@ -120,7 +120,6 @@ namespace Common
             return mStringBuilder.ToString();
         }
 
-
         ///<summary>
         /// 设置开机启动  
         ///</summary>
