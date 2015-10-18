@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonHelp.cs" />
     <Compile Include="DGV\DgvDisplayUtil.cs" />
     <Compile Include="DGV\dgvFilterColHeadCell.cs" />
     <Compile Include="ExportData.cs" />
