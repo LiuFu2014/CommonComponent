@@ -36,6 +36,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonHelp.cs" />
     <Compile Include="DGV\DgvDisplayUtil.cs" />
     <Compile Include="DGV\dgvFilterColHeadCell.cs" />
+    <Compile Include="ExportData.cs" />
     <Compile Include="LogExecute.cs" />
     <Compile Include="MessageUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +77,7 @@
     <Compile Include="DGV\UCListSelect.designer.cs">
       <DependentUpon>UCListSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsAPIHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

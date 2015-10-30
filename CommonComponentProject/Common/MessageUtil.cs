@@ -6,6 +6,7 @@ namespace Common
 {
     public class MessageUtil
     {
+        //develop
         public static DialogResult ShowError(string message)
         {
             return MessageBox.Show(message, "错误信息", MessageBoxButtons.OK, MessageBoxIcon.Hand);

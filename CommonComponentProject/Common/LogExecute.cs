@@ -11,8 +11,9 @@ namespace Common
     /// </summary>
     public class LogExecute
     {
-        string test = "test";
-        static string LogPath = "";
+        //Function
+
+        public static string LogPath = "";
 
         public const string ExceptionTag = "ExceptionTag";
 
@@ -59,7 +60,7 @@ namespace Common
 
 
 
-        static void WriteLogExecute(string FileName, string Message)
+        public static void WriteLogExecute(string FileName, string Message)
         {
             //如果日志文件目录不存在,则创建
             if (!Directory.Exists(LogPath))
@@ -93,7 +94,6 @@ namespace Common
             {
             }
         }
-
 
     }
 }
