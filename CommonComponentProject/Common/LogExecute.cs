@@ -11,7 +11,7 @@ namespace Common
     /// </summary>
     public class LogExecute
     {
-
+        string test = "test";
         static string LogPath = "";
 
         public const string ExceptionTag = "ExceptionTag";
