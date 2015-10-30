@@ -12,6 +12,7 @@ namespace Common
     public class LogExecute
     {
         //Function
+        string test = "develop2";//pull request;
 
         public static string LogPath = "";
 
