@@ -52,7 +52,6 @@ namespace Common
             if (l1 == null || l2 == null)
             {
                 return false;
-
             }
             try
             {
