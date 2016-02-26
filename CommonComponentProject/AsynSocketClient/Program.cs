@@ -107,7 +107,8 @@ namespace AsynSocketClient
                 // Create the state object.
                 StateObject state = new StateObject();
                 state.workSocket = client;
-
+                //   state:
+                //     一个用户定义对象，其中包含接收操作的相关信息。当操作完成时，此对象会被传递给 System.Net.Sockets.Socket.EndReceive(System.IAsyncResult)
                 // Begin receiving the data from the remote device.
                 client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                     new AsyncCallback(ReceiveCallback), state);
@@ -121,13 +122,14 @@ namespace AsynSocketClient
         /// <summary>
         /// 接收函数的回调函数（个人认为，实际微软的实现应该是通过另一线程促发，发送同）
         /// </summary>
-        /// <param name="ar"></param>
+        /// <param name="ar">此参数就是我们传递的state，而这个参数中的属性存储这传过来的数据</param>
         private static void ReceiveCallback(IAsyncResult ar)
         {
             try
             {
                 // Retrieve the state object and the client socket
                 // from the asynchronous state object.
+                //这里ar.AsyncState携带的就是我们传递过来的state拉
                 StateObject state = (StateObject)ar.AsyncState;
                 Socket client = state.workSocket;
 
