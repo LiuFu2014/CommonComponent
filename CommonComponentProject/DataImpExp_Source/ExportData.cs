@@ -200,10 +200,10 @@ namespace DataImpExp
             if (saveDlg1.ShowDialog() == DialogResult.Cancel) return -1;
 
 
-            Excel.Application xlApp = new Excel.Application();
-            Excel.Workbooks workbooks = xlApp.Workbooks;
-            Excel.Workbook workbook = workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];//取得sheet1 
+            Excel2.Application xlApp = new Excel2.Application();
+            Excel2.Workbooks workbooks = xlApp.Workbooks;
+            Excel2.Workbook workbook = workbooks.Add(Excel2.XlWBATemplate.xlWBATWorksheet);
+            Excel2.Worksheet worksheet = (Excel2.Worksheet)workbook.Worksheets[1];//取得sheet1 
 
             try
             {
@@ -236,7 +236,7 @@ namespace DataImpExp
                                                          //下面这句会报错
                                                          //Excel.Range rg = worksheet.get_Range(worksheet.Cells[1, 1], worksheet.Cells[1, GridView.Columns.Count]);
                                                          //Fu_csdn上的写法 ， 膜拜大神...
-                Excel.Range rg = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, GridView.Columns.Count]];
+                Excel2.Range rg = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, GridView.Columns.Count]];
                 rg.Font.Bold = true;
                 workbook.Saved = true;
                 workbook.SaveCopyAs(saveDlg1.FileName);
