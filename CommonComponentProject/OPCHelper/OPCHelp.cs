@@ -154,6 +154,14 @@ namespace OPCHelper
                 object TimeStamps;
                 //OPCAutomation.OPCDataSource.OPCCache;
                 s7Group.SyncRead(1, count, ref serverHandles, out values, out Errors, out Qualities, out TimeStamps);
+                //对于读取，不会报异常，如果对应的errors的值非0，则这个值读取失败；在这里可以做这个处理，只要有读取失败的，就整个读取失败。
+                for (int i = 0; i < Errors.Length; i++)
+                {
+                    if (Errors.GetValue(i).ToString()!="0")
+                    {
+                        return null;
+                    }
+                }
                 return values;
             }
             catch (Exception err)
@@ -183,6 +191,16 @@ namespace OPCHelper
                 Array Errors;
                 //OPCAutomation.OPCDataSource.OPCCache;
                 s7Group.SyncWrite(handle.Length, ref serverHandles, ref values, out Errors);
+                //写入方法不会抛出异常，errors对应项返回0表示写入成功，返回非0表示写入失败；但是如果多值写入，是否会出现部分写入成功，部分写入失败的结果呢？
+                //如果单单检测到写入失败的值，就返回false，则可能会造成流程上的错误。
+                for (int i = 0; i < Errors.Length; i++)
+                {
+                    if (Errors.GetValue(i).ToString()!="0")
+                    {
+                        //表示当前handle指代地址写入错误
+                        return false;
+                    }
+                }
                 return true;
             }
             catch (Exception)
