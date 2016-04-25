@@ -153,15 +153,11 @@ namespace OPCHelper
                 object Qualities;
                 object TimeStamps;
                 //OPCAutomation.OPCDataSource.OPCCache;
+                //这两种在断开的情况下，都不会引发异常，但是Qualities会将为0，如果正常读取下会是192等非0情况。
                 s7Group.SyncRead(1, count, ref serverHandles, out values, out Errors, out Qualities, out TimeStamps);
-                //对于读取，不会报异常，如果对应的errors的值非0，则这个值读取失败；在这里可以做这个处理，只要有读取失败的，就整个读取失败。
-                for (int i = 0; i < Errors.Length; i++)
-                {
-                    if (Errors.GetValue(i).ToString()!="0")
-                    {
-                        return null;
-                    }
-                }
+                //object ItemValues = null;
+                //s7Group.OPCItems.GetOPCItem(handle[0]).Read(1, out ItemValues, out Qualities, out TimeStamps);
+
                 return values;
             }
             catch (Exception err)
@@ -190,17 +186,17 @@ namespace OPCHelper
                 Array values = (Array)temp1;
                 Array Errors;
                 //OPCAutomation.OPCDataSource.OPCCache;
+                //这种在断开的情况下，对应索引的Errors值非0（错误），正常情况下为0.
                 s7Group.SyncWrite(handle.Length, ref serverHandles, ref values, out Errors);
-                //写入方法不会抛出异常，errors对应项返回0表示写入成功，返回非0表示写入失败；但是如果多值写入，是否会出现部分写入成功，部分写入失败的结果呢？
-                //如果单单检测到写入失败的值，就返回false，则可能会造成流程上的错误。
-                for (int i = 0; i < Errors.Length; i++)
+                foreach (var item in Errors)
                 {
-                    if (Errors.GetValue(i).ToString()!="0")
+                    if (Convert.ToInt32(item) != 0)
                     {
-                        //表示当前handle指代地址写入错误
                         return false;
                     }
                 }
+                //这种在断开的情况下会引发异常 ,适合单值写入，正常不会报异常。
+                //s7Group.OPCItems.GetOPCItem(handle[0]).Write(2400);
                 return true;
             }
             catch (Exception)
