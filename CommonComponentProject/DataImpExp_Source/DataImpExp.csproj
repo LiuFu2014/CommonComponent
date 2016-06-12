@@ -89,7 +89,9 @@
     <Compile Include="DataImpExp\DataIE.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataImpExp\frmProgressDataToExcel.cs" />
+    <Compile Include="DataImpExp\frmProgressDataToExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DataImpExp\IEDataSourceType.cs">
       <SubType>Code</SubType>
     </Compile>
