@@ -59,6 +59,7 @@
     <Compile Include="ExportData.cs" />
     <Compile Include="LogExecute.cs" />
     <Compile Include="MessageUtil.cs" />
+    <Compile Include="NullHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DGV\UCCheckSelect.cs">
       <SubType>UserControl</SubType>
