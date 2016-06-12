@@ -24,11 +24,9 @@ namespace Common
         private BindingSource dataSource = new BindingSource();//数据源
         public  DataTable dtSource = null;
 
-    
-
-
         private bool changesource = false;
         private List<HeadColFilter> HeadColList = new List<HeadColFilter> ();
+
 
         public void AddDgvTitle(string ColName, string HeaderText, int Width)
         {
@@ -140,6 +138,13 @@ namespace Common
             _Dgv = Dgv;
             InitContextMenuStripSet();
             InitDgv();
+
+        }
+
+        private void _Dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            SolidBrush b = new SolidBrush(this._Dgv.RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this._Dgv.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
         }
 
         public bool IsCheckbox
@@ -204,6 +209,10 @@ namespace Common
             _Dgv.CellMouseDown += new DataGridViewCellMouseEventHandler(dgv_CellMouseDown);
             _Dgv.CurrentCellDirtyStateChanged += new EventHandler(dgvSelectAll_CurrentCellDirtyStateChanged);
             _Dgv.DataSourceChanged += new EventHandler(dgv_DataSourceChanged);
+
+            //新增在表头显示行数
+            _Dgv.RowPostPaint += _Dgv_RowPostPaint;
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
             dataGridViewCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 
