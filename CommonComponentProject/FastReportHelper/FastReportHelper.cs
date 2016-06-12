@@ -25,6 +25,11 @@ namespace FastReportHelper
         public  static void ReportPrint(string filePath)
         {
             report.Load(filePath);
+            //传递参数
+            //_report.SetParameterValue("Barcode", current["cMNo"].ToString());
+            //_report.SetParameterValue("Name", current["cMName"].ToString());
+            //_report.SetParameterValue("Num", current["fQty"].ToString());
+            //_report.SetParameterValue("Date", current["cSpec"].ToString());
             //是否弹出弹框
             report.PrintSettings.ShowDialog = false;
             report.Print();
