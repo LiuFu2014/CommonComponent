@@ -73,5 +73,130 @@ namespace Common
                 return false;
             }
         }
+
+        /// <summary>
+        /// 方法，只允许数字类型输入 (拷贝的春哥的代码，这里都是局部变量，对于多线程都是独立的，加锁是多余)
+        /// </summary>
+        /// <param name="KeyChar">键码</param>
+        /// <param name="t">数据类型</param>
+        /// <param name="Text">文本</param>
+        /// <returns>真假值</returns>
+        public static bool MaskNumber(Char KeyChar, Type t, string Text, bool blnDot, bool blnLine)//forbitDot---是否允许圆点输入
+        {
+            #region
+
+            if (KeyChar == 8) return false;//(e.KeyChar == (Char)8)//Backspace_8 和 Enter_13 键
+
+            lock (typeof(CommonHelp))
+            {
+                //浮点型
+                if (t == typeof(decimal) || t == typeof(Single) || t == typeof(Double))
+                {
+                    int intIndex = Text.IndexOf(".");
+
+                    if (intIndex < 0 && blnDot) //allowDot=true允许圆点号-----//点号(intIndex=-1)
+                    {
+                        if (Char.IsDigit(KeyChar) || KeyChar == '.') return false;
+                    }
+                    else
+                    {
+                        if (Char.IsDigit(KeyChar)) return false;
+                    }
+
+                    intIndex = Text.IndexOf("-");
+
+                    if (intIndex < 0 && blnLine)
+                    {
+                        if (Char.IsDigit(KeyChar) || KeyChar == '-') return false;/* || KeyChar == '-'*/
+                    }
+                    else
+                    {
+                        if (Char.IsDigit(KeyChar)) return false;
+                    }
+                    return true;
+                }
+
+                //整型
+                if (t == typeof(Int16) || t == typeof(Int32) || t == typeof(Int64) || t == typeof(UInt16) || t == typeof(UInt32) || t == typeof(UInt64) || t == typeof(Byte) || t == typeof(SByte))
+                {
+                    if (Char.IsDigit(KeyChar)) return false;
+                    return true;
+                }
+
+                //日期型
+                if (t == typeof(System.DateTime))
+                {
+                    int intIndex = Text.IndexOf("-");
+                    int intIndex1 = Text.IndexOf("/");
+
+                    if (intIndex < 0 && intIndex1 < 0)
+                    {
+                        if (Char.IsDigit(KeyChar) || KeyChar == '-' || KeyChar == '/') return false;
+                    }
+                    else
+                    {
+                        if (intIndex > 0)
+                        {
+                            if (ContainCharNumber(Text, "-") == 1)
+                            {
+                                if (Char.IsDigit(KeyChar) || KeyChar == '-') return false;
+                            }
+                            else
+                            {
+                                if (Char.IsDigit(KeyChar)) return false;
+                            }
+                            return true;
+                        }
+                        if (intIndex1 > 0)
+                        {
+                            if (ContainCharNumber(Text, "/") == 1)
+                            {
+                                if (Char.IsDigit(KeyChar) || KeyChar == '/') return false;
+                            }
+                            else
+                            {
+                                if (Char.IsDigit(KeyChar)) return false;
+                            }
+                            return true;
+                        }
+                        if (Char.IsDigit(KeyChar)) return false;
+                    }
+                    return true;
+                }
+
+                return false;
+            }
+
+            #endregion
+        }
+
+        /// <summary>
+        /// 方法，字符串中包含字符的数量 (拷贝的春哥的代码，这里都是局部变量，对于多线程都是独立的，加锁是多余)
+        /// </summary>
+        /// <param name="str">字符串</param>
+        /// <param name="Char"></param>
+        /// <returns>返回包含字符Char的数量</returns>
+        private static int ContainCharNumber(string str, string Char)
+        {
+            #region
+
+            lock (typeof(CommonHelp))
+            {
+                if (str.Length < 1) return 0;
+
+                int j = 0;
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (str.Substring(i, 1) == Char)
+                    {
+                        j++;
+                    }
+                }
+
+                return j;
+            }
+
+            #endregion
+        }
     }
 }
