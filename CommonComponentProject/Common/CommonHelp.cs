@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -197,6 +198,29 @@ namespace Common
             }
 
             #endregion
+        }
+
+        /// <summary>
+        /// 截取图像的矩形区域
+        /// </summary>
+        /// <param name="source">源图像对应picturebox1</param>
+        /// <param name="rect">矩形区域，如上初始化的rect</param>
+        /// <returns>矩形区域的图像</returns>
+        public static Image AcquireRectangleImage(Image source, Rectangle rect)
+        {
+            if (source == null || rect.IsEmpty) return null;
+            Bitmap bmSmall = new Bitmap(rect.Width, rect.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+            //Bitmap bmSmall = new Bitmap(rect.Width, rect.Height, source.PixelFormat);
+
+            using (Graphics grSmall = Graphics.FromImage(bmSmall))
+            {
+                grSmall.DrawImage(source,
+                                  new System.Drawing.Rectangle(0, 0, bmSmall.Width, bmSmall.Height),
+                                  rect,
+                                  GraphicsUnit.Pixel);
+                grSmall.Dispose();
+            }
+            return bmSmall;
         }
     }
 }
