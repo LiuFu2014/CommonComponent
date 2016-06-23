@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Common
 {
@@ -346,6 +347,19 @@ namespace Common
                 return false;
             }
 
+        }
+
+        /// <summary>
+        /// 控制，只输入数字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+            {
+                e.Handled = true;
+            }
         }
 
     }
