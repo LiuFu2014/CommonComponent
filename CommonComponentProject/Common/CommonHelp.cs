@@ -225,7 +225,7 @@ namespace Common
             return bmSmall;
         }
 
-        //// <summary>
+        /// <summary>
         /// 获取图片编码信息
         /// </summary>
         private static ImageCodecInfo GetEncoderInfo(String mimeType)
@@ -276,7 +276,7 @@ namespace Common
             }
         }
 
-        //// <summary>
+        /// <summary>
         /// 图片压缩函数
         /// </summary>
         /// <param name="sourceFile">原始图片文件</param>
