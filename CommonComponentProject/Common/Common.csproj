@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,7 @@
     <Compile Include="DGV\dgvFilterColHeadCell.cs" />
     <Compile Include="EcanSecurity.cs" />
     <Compile Include="ExportData.cs" />
+    <Compile Include="JsonHelper.cs" />
     <Compile Include="LogExecute.cs" />
     <Compile Include="MessageUtil.cs" />
     <Compile Include="NullHandler.cs" />
