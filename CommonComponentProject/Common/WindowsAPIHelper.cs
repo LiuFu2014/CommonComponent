@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Common
 {
     [StructLayout(LayoutKind.Sequential)]
-    class SystemTime
+    public class SystemTime
     {
         public ushort year;
         public ushort month;

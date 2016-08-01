@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Common
 {
-    class CommonHelp
+    public class CommonHelp
     {
         /// <summary>
         /// 比较两个结构相同的datatable内容是否相等

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    class NullHandler
+    public class NullHandler
     {
         #region Private Fields
 
