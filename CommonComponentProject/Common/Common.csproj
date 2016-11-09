@@ -59,6 +59,7 @@
     <Compile Include="DGV\dgvFilterColHeadCell.cs" />
     <Compile Include="EcanSecurity.cs" />
     <Compile Include="ExportData.cs" />
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="LogExecute.cs" />
     <Compile Include="MessageUtil.cs" />
